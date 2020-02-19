@@ -1,0 +1,11 @@
+.editor-settings {
+  border-top: 1px dotted silver;
+  display: flex;
+  grid-area: settings;
+  padding: 1rem;
+}
+
+.editor-settings > div {
+  margin-right: 1rem;
+  min-width: 10rem;
+}

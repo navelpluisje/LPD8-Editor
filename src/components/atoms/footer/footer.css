@@ -1,0 +1,11 @@
+.site-footer {
+  align-items: center;
+  border-top: 1px dotted silver;
+  display: flex;
+  grid-area: footer;
+  justify-content: center;
+}
+
+.site-footer a {
+  color: var(--accent);
+}

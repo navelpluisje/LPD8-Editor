@@ -1,0 +1,6 @@
+.site-main {
+  display: grid;
+  grid-area: main;
+  grid-template-areas: 'controls' 'editor' 'settings';
+  grid-template-rows: auto 1fr auto;
+}

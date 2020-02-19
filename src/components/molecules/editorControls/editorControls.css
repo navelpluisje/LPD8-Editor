@@ -1,0 +1,23 @@
+.editor-controls {
+  border-bottom: 1px dotted silver;
+  display: flex;
+  grid-area: controls;
+  justify-content: space-between;
+  padding: 1rem;
+  text-align: right;
+}
+
+.editor-actions > button {
+  margin-right: 1rem;
+}
+
+.editor-banks {
+  align-content: center;
+  display: flex;
+}
+
+.editor-banks > span {
+  align-self: center;
+  margin-right: 1rem;
+}
+

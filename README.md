@@ -1,68 +1,32 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# LPD8 Editor
 
-## Available Scripts
+## What is this?
 
-In the project directory, you can run:
+This is a simple editor for the Akai LPD8 MIDI-controller.
 
-### `yarn start`
+## Why is it created?
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Akai thinks money is more important then helping customers. Due to the lack of effort from their side to update their LPD8 Editor, I decided to build my own, web based. This way it will work in every browser on every OS, as long as web-MIDI is supported.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## What does it do?
 
-### `yarn test`
+* It can get data from the LPD8
+* It can store the created config to the LPD8
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## How does it work?
 
-### `yarn build`
+* Select an input device
+* Select an output device, the active bank will get selected
+* Click `Load Config` to get the bank data from the LPD8
+* Make some changes
+* Click `Send Config` to store the data to the LPD8
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## What does not work (yet)?
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+* Store a config to a file
+* Load a config from a file
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## What helped me?
 
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+* https://github.com/charlesfleche/lpd8editor/blob/d3c312e226f55ab0082b66e4732f5b860dc7b5fb/doc/SYSEX.md
+* https://github.com/mungewell/mpd-utils/blob/master/sysex/sysex_lpd8.md
