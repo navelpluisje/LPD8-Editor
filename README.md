@@ -2,6 +2,12 @@
 
 ![Screenhot of the editor](docs/screenshot.png)
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/d111775c-f254-4a27-9a6a-1c6d55cfdef1/deploy-status)](https://app.netlify.com/sites/lpd8-editor/deploys)
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v1.4%20adopted-ff69b4.svg)](code-of-conduct.md)
+[![GitHub license](https://img.shields.io/github/license/Navelpluisje/LPD8-Editor.svg)](https://github.com/Navelpluisje/LPD8-Editor/blob/master/LICENSE)
+[![made-with-love](https://img.shields.io/badge/Made%20with-♥-ff0000.svg)](https://www.navelpluisje.nl/)
+
+
 ## What is this?
 
 This is a simple editor for the Akai LPD8 MIDI-controller.
