@@ -11,7 +11,12 @@ interface Props {
 export const Select: React.FC<Props> = ({ id, label, onChange, value, children }) => (
   <div className="select-group">
     <label htmlFor={id}>{label}</label>
-    <select value={value} id={id} onChange={(evt: SyntheticEvent<HTMLSelectElement>) => onChange(evt.currentTarget.selectedOptions[0].value)}>
+    <select
+      value={value}
+      id={id}
+      onChange={(evt: SyntheticEvent<HTMLSelectElement>) => onChange(evt.currentTarget.selectedOptions[0].value)}
+      className="select"
+    >
       <option value="">&hellip;</option>
       {children}
     </select>

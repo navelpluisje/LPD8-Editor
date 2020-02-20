@@ -1,5 +1,7 @@
 # LPD8 Editor
 
+![Screenhot of the editor](docs/screenshot.png)
+
 ## What is this?
 
 This is a simple editor for the Akai LPD8 MIDI-controller.

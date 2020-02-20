@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './lpd8Pad.css';
-import { EditorInput } from '../../atoms';
+import { EditorInput, NoteSelect } from '../../atoms';
 import { useConfig } from '../../../context';
 
 interface Props {
@@ -48,7 +48,7 @@ export const Lpd8Pad: React.FC<Props> = ({ id, note, cc, pc, type }) => {
   return (
     <div className="lpd8-pad">
       <div className="lpd8-pad-label">{`Pad ${id}`}</div>
-      <EditorInput label="Note" value={_note} onChange={evt => updateNote(parseInt(evt.target.value, 10))} />
+      <NoteSelect label="Note" value={_note} onChange={evt => updateNote(parseInt(evt.target.value, 10))} />
       <EditorInput label="CC" value={_cc} onChange={evt => updateCC(parseInt(evt.target.value, 10))} />
       <EditorInput label="PC" value={_pc} onChange={evt => updatePC(parseInt(evt.target.value, 10))} />
       <EditorInput label="Toggle" min="0" max="1" step="1" value={_type} onChange={evt => updateType(parseInt(evt.target.value, 10))} />

@@ -3,7 +3,7 @@
   flex-direction: column;
 }
 
-select {
+select.select {
   -moz-appearance: none;
   -webkit-appearance: none;
   appearance: none;
