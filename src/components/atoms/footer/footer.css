@@ -2,6 +2,7 @@
   align-items: center;
   border-top: 1px dotted silver;
   display: flex;
+  font-size: .8rem;
   grid-area: footer;
   justify-content: center;
 }

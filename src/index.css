@@ -22,7 +22,7 @@ body {
   display: grid;
   grid-template-areas: 'header' 'main' 'footer';
   grid-template-columns: 1fr;
-  grid-template-rows: 5rem 1fr 2rem;
+  grid-template-rows: 5rem 1fr 2.5rem;
   height: 100vh;
   min-width: 50rem;
 }
