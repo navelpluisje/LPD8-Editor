@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@svgr/webpack": "4.3.3",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
@@ -10,22 +11,35 @@
     "@types/node": "^13.7.1",
     "@types/react": "^16.9.19",
     "@types/react-dom": "^16.9.5",
-    "encoding": "^0.1.12",
+    "@typescript-eslint/eslint-plugin": "^2.10.0",
+    "@typescript-eslint/parser": "^2.10.0",
+    "babel-eslint": "10.0.3",
+    "css-loader": "3.4.2",
     "faunadb": "^2.11.1",
+    "file-loader": "4.3.0",
+    "html-webpack-plugin": "4.0.0-beta.11",
+    "identity-obj-proxy": "3.0.0",
+    "mini-css-extract-plugin": "0.9.0",
+    "optimize-css-assets-webpack-plugin": "5.0.3",
+    "pnp-webpack-plugin": "1.6.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
-    "react-scripts": "3.4.0",
-    "typescript": "^3.7.5"
+    "style-loader": "0.23.1",
+    "terser-webpack-plugin": "2.3.4",
+    "ts-pnp": "1.1.5",
+    "typescript": "^3.7.5",
+    "url-loader": "2.3.0",
+    "webpack": "4.41.5",
+    "webpack-dev-server": "3.10.2"
   },
   "scripts": {
     "start": "npm-run-all --parallel start:app start:server",
-    "start:app": "react-scripts start",
+    "start:app": "node scripts/start.js",
     "start:server": "netlify-lambda serve functions -c webpack.config.js",
     "build": "npm-run-all --parallel build:**",
-    "build:app": "react-scripts build",
+    "build:app": "node scripts/build.js",
     "build:server": "netlify-lambda build functions -c ./webpack.config.js",
-    "test": "react-scripts test --env=jsdom --coverage",
-    "eject": "react-scripts eject",
+    "test": "node scripts/test.js --env=jsdom --coverage",
     "bootstrap": "node ./scripts/bootstrap"
   },
   "eslintConfig": {
@@ -48,5 +62,60 @@
     "craco-alias": "^2.1.0",
     "netlify-lambda": "^1.6.3",
     "npm-run-all": "^4.1.5"
+  },
+  "jest": {
+    "roots": [
+      "<rootDir>/src"
+    ],
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx,ts,tsx}",
+      "!src/**/*.d.ts"
+    ],
+    "setupFiles": [
+      "react-app-polyfill/jsdom"
+    ],
+    "setupFilesAfterEnv": [
+      "<rootDir>/src/setupTests.js"
+    ],
+    "testMatch": [
+      "<rootDir>/src/**/__tests__/**/*.{js,jsx,ts,tsx}",
+      "<rootDir>/src/**/*.{spec,test}.{js,jsx,ts,tsx}"
+    ],
+    "testEnvironment": "jest-environment-jsdom-fourteen",
+    "transform": {
+      "^.+\\.(js|jsx|ts|tsx)$": "<rootDir>/node_modules/babel-jest",
+      "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
+      "^(?!.*\\.(js|jsx|ts|tsx|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
+    },
+    "transformIgnorePatterns": [
+      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|ts|tsx)$",
+      "^.+\\.module\\.(css|sass|scss)$"
+    ],
+    "modulePaths": [],
+    "moduleNameMapper": {
+      "^react-native$": "react-native-web",
+      "^.+\\.module\\.(css|sass|scss)$": "identity-obj-proxy"
+    },
+    "moduleFileExtensions": [
+      "web.js",
+      "js",
+      "web.ts",
+      "ts",
+      "web.tsx",
+      "tsx",
+      "json",
+      "web.jsx",
+      "jsx",
+      "node"
+    ],
+    "watchPlugins": [
+      "jest-watch-typeahead/filename",
+      "jest-watch-typeahead/testname"
+    ]
+  },
+  "babel": {
+    "presets": [
+      "react-app"
+    ]
   }
 }
