@@ -13,6 +13,7 @@ exports.handler = (event, context, callback) => {
   const todoItem = {
     data: data
   }
+
   /* construct the fauna query */
   return client.query(q.Create(q.Ref("classes/configs"), todoItem))
   .then((response) => {
