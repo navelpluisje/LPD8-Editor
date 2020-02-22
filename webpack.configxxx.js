@@ -3,7 +3,7 @@ const webpack = require('webpack');
 module.exports = {
   devServer: {
     proxy: {
-      "/.netlify": {
+      "http://localhost:3000/.netlify": {
         target: "http://localhost:9000",
         pathRewrite: { "^/.netlify/functions": "" }
       }
