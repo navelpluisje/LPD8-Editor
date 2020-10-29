@@ -5,5 +5,7 @@
   background-size: 1rem 1rem;
   display: flex;
   justify-content: center;
+  overflow: hidden;
   padding: 1rem;
+  position: relative;
 }

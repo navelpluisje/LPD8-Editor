@@ -18,7 +18,7 @@ export const NoteSelect: React.FC<Props> = ({ value, label, onChange }) => (
       dir="rtl"
     >
       {Object.entries(Notes).map(([value, note]) => (
-        <option value={value}>{note}</option>
+        <option key={value} value={value}>{note}</option>
       ))}
     </select>
   </div>

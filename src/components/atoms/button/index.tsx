@@ -3,9 +3,13 @@ import './button.css';
 
 interface Props {
   onClick: () => void;
-  disabled: boolean,
+  disabled?: boolean;
 }
 
-export const Button: React.FC<Props> = ({onClick, disabled, children}) => (
-  <button onClick={onClick} disabled={disabled}>{children}</button>
+export const Button: React.FC<Props> = ({
+  onClick,
+  disabled = false,
+  children
+}) => (
+  <button className="button" onClick={onClick} disabled={disabled}>{children}</button>
 )

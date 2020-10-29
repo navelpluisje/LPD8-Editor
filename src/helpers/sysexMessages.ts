@@ -33,3 +33,14 @@ export const getActiveBank = () => {
     Sysex.End,
   ]);
 };
+
+export const setActiveBank = (bank: string) => {
+  return new Uint8Array([
+    Sysex.Start,
+    Sysex.Manufacturer,
+    ...Sysex.Model,
+    ...Sysex.Actions.SetActiveBank,
+    parseInt(bank, 16),
+    Sysex.End,
+  ]);
+};

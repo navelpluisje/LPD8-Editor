@@ -2,16 +2,31 @@ import { useContext } from "react";
 import { ConfigContext } from "./context";
 
 export const useConfig = () => {
-  const { bank, pads, knobs, midiChannel, setBank, setPadValue, setKnobValue, setMidiChannel } = useContext(ConfigContext);
-
-  return {
-    bank,
-    pads,
-    knobs,
-    midiChannel,
-    setBank,
+  const {
+    activeBank,
+    setActiveBank,
+    getBanks,
     setPadValue,
     setKnobValue,
+    setBank,
+    setName,
+    setDescription,
     setMidiChannel,
+    setConfiguration,
+    setConfigurations,
+  } = useContext(ConfigContext);
+
+  return {
+    activeBank,
+    setActiveBank,
+    getBanks,
+    setPadValue,
+    setKnobValue,
+    setBank,
+    setName,
+    setDescription,
+    setMidiChannel,
+    setConfiguration,
+    setConfigurations,
   };
 };

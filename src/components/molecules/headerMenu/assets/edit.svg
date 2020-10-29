@@ -1,0 +1,9 @@
+<svg viewBox="0 0 20 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g stroke-width="1" stroke="currentColor">
+    <line y1="5" x1=".5" y2="5" x2="4" />
+    <line y1="5" x1="19.5" y2="5" x2="16" />
+    <circle r="1" cx="5" cy="5" />
+    <circle r="1" cx="15" cy="5" />
+    <line y1="0" x1="1" y2="0" x2="9" transform="translate(5, 5) rotate(-25)" />
+  </g>
+</svg>

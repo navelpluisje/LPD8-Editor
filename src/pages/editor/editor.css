@@ -1,0 +1,11 @@
+.page-editor {
+  display: grid;
+  grid-area: main;
+  grid-template-areas:
+    'controls controls'
+    'editor-drawer editor'
+    'editor-drawer settings';
+  grid-template-columns: minmax(max-content, min-content) minmax(0, 1fr);
+  grid-template-rows: auto 1fr auto;
+  width: 100%;
+}

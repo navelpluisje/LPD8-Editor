@@ -5,6 +5,8 @@
   --primary-contrast: #ffffff;
   --accent: #D7172F;
   --small-font: .8rem;
+  --drawer-width: 15rem;
+  --border-color: silver;
 }
 
 * {
@@ -22,8 +24,9 @@ body {
   display: grid;
   grid-template-areas: 'header' 'main' 'footer';
   grid-template-columns: 1fr;
-  grid-template-rows: 5rem 1fr 2.5rem;
+  grid-template-rows: 5rem 1fr 3rem;
   height: 100vh;
-  min-width: 50rem;
+  min-width: 60rem;
+  width: 100vw;
 }
 

@@ -1,0 +1,23 @@
+.split-column {
+  display: grid;
+  grid-area: main;
+  grid-template-areas:
+    'title title'
+    'left-column right-column';
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto 1fr;
+  column-gap: 2rem;
+  padding: 0 1rem;
+}
+
+.split-column-header {
+  grid-area: title;
+}
+
+.split-column-left {
+  grid-area: left-column;
+}
+
+.split-column-right {
+  grid-area: right-column;
+}

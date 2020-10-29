@@ -1,0 +1,22 @@
+.editor-drawer {
+  border-right: 1px dotted silver;
+  grid-area: editor-drawer;
+  position: relative;
+  transition: width .3s ease;
+  width: 0;
+}
+
+.editor-drawer.open {
+  width: var(--drawer-width)  ;
+}
+
+.editor-drawer ul {
+  height: 100%;
+  list-style: none;
+  margin: 0;
+  padding: 1rem;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: var(--drawer-width);
+}

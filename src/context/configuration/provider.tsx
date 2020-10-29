@@ -1,20 +1,28 @@
-import React, { useReducer, useEffect } from "react";
+import React, { useReducer, useEffect, useState } from "react";
 import { initialState, ConfigContext } from "./context";
 import { EventBus } from '../../helpers/eventBus';
 import { fromSysex } from '../../helpers/fromSysex';
-import { LoadConfiguration, Configuration } from '../../types';
+import { LoadConfiguration, ConfigState, Bank } from '../../types';
 
 export const ConfigContextProvider: React.FC<any> = ({ children }) => {
-  const reducer = (state: Configuration , action: any) => {
+  const [active, setActiveBank] = useState('initial2');
+
+  const reducer = (state: ConfigState , action: any) => {
     switch (action.type) {
       case 'setPadValue':
         return {
           ...state,
-          pads: {
-            ...state.pads,
-            [action.payload.id]: {
-              ...state.pads[action.payload.id],
-              [action.payload.key]: action.payload.value,
+          banks: {
+            ...state.banks,
+            [active]: {
+              ...state.banks[active],
+              pads: {
+                ...state.banks[active].pads,
+                [action.payload.id]: {
+                  ...state.banks[active].pads[action.payload.id],
+                  [action.payload.key]: action.payload.value,
+                }
+              }
             }
           }
         };
@@ -22,11 +30,17 @@ export const ConfigContextProvider: React.FC<any> = ({ children }) => {
       case 'setKnobValue':
         return {
           ...state,
-          knobs: {
-            ...state.knobs,
-            [action.payload.id]: {
-              ...state.knobs[action.payload.id],
-              [action.payload.key]: action.payload.value,
+          banks: {
+            ...state.banks,
+            [active]: {
+              ...state.banks[active],
+              knobs: {
+                ...state.banks[active].knobs,
+                [action.payload.id]: {
+                  ...state.banks[active].knobs[action.payload.id],
+                  [action.payload.key]: action.payload.value,
+                }
+              }
             }
           }
         };
@@ -34,13 +48,76 @@ export const ConfigContextProvider: React.FC<any> = ({ children }) => {
       case 'setBank':
         return {
           ...state,
-          bank: action.payload.bank,
+          banks: {
+            ...state.banks,
+            [active]: {
+              ...state.banks[active],
+              bank: action.payload.bank,
+            }
+          }
+        };
+
+      case 'setName':
+        const newState: ConfigState = {
+          ...state,
+          banks: {
+            ...state.banks,
+            [action.payload.name]: {
+              ...state.banks[active],
+            }
+          }
+        };
+
+        delete newState.banks[active];
+        setActiveBank(action.payload.name);
+
+        return newState;
+
+      case 'setDescription':
+        return {
+          ...state,
+          banks: {
+            ...state.banks,
+            [active]: {
+              ...state.banks[active],
+              description: action.payload.description,
+            }
+          }
         };
 
       case 'setMidiChannel':
         return {
           ...state,
-          midiChannel: action.payload.midiChannel,
+          banks: {
+            ...state.banks,
+            [active]: {
+              ...state.banks[active],
+              midiChannel: action.payload.midiChannel,
+            }
+          }
+        };
+
+      case 'setConfiguration':
+        return {
+          ...state,
+          banks: {
+            ...state.banks,
+            [action.payload.name]: {
+              ...action.payload.bank,
+            }
+          }
+        };
+
+      case 'setConfigurations':
+        return {
+          ...state,
+          banks: {
+            ...Object.entries(action.payload).reduce((acc, [name, bank]) => ({
+              ...acc,
+              // @ts-ignore
+              [name]: { ...(bank.data as Bank) },
+            }), {}),
+          }
         };
 
       default:
@@ -81,6 +158,24 @@ export const ConfigContextProvider: React.FC<any> = ({ children }) => {
     })
   };
 
+  const setName = (name: string) => {
+    dispatch({
+      type: 'setName',
+      payload: {
+        name
+      }
+    })
+  };
+
+  const setDescription = (description: string) => {
+    dispatch({
+      type: 'setDescription',
+      payload: {
+        description
+      }
+    })
+  };
+
   const setMidiChannel = (midiChannel: number) => {
     dispatch({
       type: 'setMidiChannel',
@@ -89,6 +184,51 @@ export const ConfigContextProvider: React.FC<any> = ({ children }) => {
       }
     })
   };
+
+  const setConfiguration = (
+    name: string,
+    bank: Bank,
+  ) => {
+    dispatch({
+      type: 'setConfiguration',
+      payload: {
+        name,
+        bank,
+      }
+    })
+  };
+
+  const setConfigurations = (banks: Record<string, Bank>) => {
+    dispatch({
+      type: 'setConfigurations',
+      payload: banks,
+    })
+  };
+
+  const activeBank = (): Bank & { name: string } => {
+    let bank = {
+      ...state.banks[active],
+      name: active,
+    }
+
+    if (!bank.pads) {
+      const newActive = Object.keys(state.banks)[0]
+      setActiveBank(newActive);
+      bank = {
+        ...state.banks[newActive],
+        name: newActive,
+      }
+    }
+
+    return bank;
+  }
+
+  const getBanks = (): Array<Bank & { name: string }> => {
+    return Object.entries(state.banks).map(([name, bank]) => ({
+      ...bank,
+      name,
+    }))
+  }
 
   const loadConfiguration = (configuration: Uint8Array) => {
     const config: LoadConfiguration | null = fromSysex(configuration);
@@ -115,7 +255,19 @@ export const ConfigContextProvider: React.FC<any> = ({ children }) => {
   /* We're Providing state object (langCode and translate method
   in this case) and also the setLanguage for the children components */
   return (
-    <ConfigContext.Provider value={{...state, setPadValue, setKnobValue, setBank, setMidiChannel}}>
+    <ConfigContext.Provider value={{
+      activeBank,
+      setActiveBank,
+      getBanks,
+      setPadValue,
+      setKnobValue,
+      setBank,
+      setName,
+      setDescription,
+      setMidiChannel,
+      setConfiguration,
+      setConfigurations,
+    }}>
       {children}
     </ConfigContext.Provider>
   );

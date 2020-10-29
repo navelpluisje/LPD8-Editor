@@ -6,8 +6,10 @@ import { toSysex } from '../../../helpers/toSysex';
 import './editorControls.css';
 
 export const EditorControls = () => {
-  const { pads, knobs, bank, midiChannel, setBank } = useConfig();
+  const { activeBank, setBank } = useConfig();
   const { midiOutput } = useMidi();
+
+  const { bank, midiChannel, pads, knobs } = activeBank();
 
   const loadConfiguration = () => {
     // @ts-ignore
@@ -19,20 +21,12 @@ export const EditorControls = () => {
     midiOutput && midiOutput.send(toSysex(bank, midiChannel, pads, knobs));
   }
 
-  const createTodo = () => {
-    return fetch('/.netlify/functions/config-create', {
-      body: JSON.stringify('test: true'),
-      method: 'POST'
-    }).then(response => {
-      return response.json()
-    })
-  }
   return (
     <section className="editor-controls">
       <section className="editor-actions">
         <Button onClick={loadConfiguration} disabled={Boolean(!midiOutput)}>Load Config</Button>
         <Button onClick={sendConfiguration} disabled={Boolean(!midiOutput)}>Send Config</Button>
-        <Button onClick={createTodo} disabled={false}>Save Config</Button>
+        {/* <Button onClick={createTodo} disabled={false}>Save Config</Button> */}
       </section>
       <section className="editor-banks">
         <span>Banks</span>
