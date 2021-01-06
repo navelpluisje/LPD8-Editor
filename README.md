@@ -2,6 +2,8 @@
 
 [![Buy Me A Coffee](docs/buy-me-a-coffee.png)](https://www.buymeacoffee.com/navelpluisje)
 
+[Live Action!](https://lpd8-editor.com)
+
 ![Screenhot of the editor](docs/screenshot.png)
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/d111775c-f254-4a27-9a6a-1c6d55cfdef1/deploy-status)](https://app.netlify.com/sites/lpd8-editor/deploys)
