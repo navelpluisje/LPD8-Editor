@@ -1,0 +1,21 @@
+.radio {
+  clip: rect(0, 0, 0, 0);
+  overflow: hidden;
+  position: absolute;
+}
+
+.radio + label {
+  background-color: var(--primary-contrast);
+  border: 1px solid var(--primary);
+  filter: drop-shadow(4px 4px 0 var(--primary));
+  font-size: .9rem;
+  padding: .5rem .75rem;
+  transition: all .3s ease;
+}
+
+.radio:checked + label,
+.radio + label:hover {
+  background-color: silver;
+  filter: drop-shadow(2px 2px 0 var(--primary));
+  transform: translate(1px, 1px);
+}

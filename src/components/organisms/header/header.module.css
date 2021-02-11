@@ -1,0 +1,12 @@
+.site-header {
+  align-items: center;
+  border-bottom: 1px dotted silver;
+  display: flex;
+  justify-content: space-between;
+  grid-area: header;
+  padding: 1rem;
+}
+
+.site-header img {
+  height: 100%;
+}

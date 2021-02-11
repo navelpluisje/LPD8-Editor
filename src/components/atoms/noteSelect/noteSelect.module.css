@@ -1,0 +1,26 @@
+.editor-input {
+  display: flex;
+  padding: .125rem;
+}
+
+.editor-input label {
+  color: var(--accent);
+  flex-shrink: 0;
+  font-size: var(--small-font);
+  width: 50%;
+}
+
+.editor-input .note-select {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: transparent;
+  border: none;
+  font-family: 'Fira Mono', monospace;
+  font-size: var(--small-font);
+  font-weight: 600;
+  flex-shrink: 0;
+  padding-right: .9rem;
+  text-align: right;
+  width: 50%;
+}

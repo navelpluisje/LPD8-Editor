@@ -1,0 +1,55 @@
+:root {
+  --primary: #333;
+  --primary-contrast: #fff;
+  --accent: #d7172f;
+  --drawer-width: 15rem;
+  --small-font: .8rem;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Fira Mono', monospace;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.site-header {
+  align-items: center;
+  border-bottom: 1px dotted silver;
+  display: flex;
+  justify-content: space-between;
+  grid-area: header;
+  padding: 1rem;
+}
+
+.site-header img {
+  height: 100%;
+}
+
+.site-footer {
+  align-items: center;
+  border-top: 1px dotted silver;
+  display: flex;
+  font-size: .8rem;
+  grid-area: footer;
+  justify-content: center;
+  padding: .5rem 0;
+}
+
+.site-footer img {
+ height: 1.5rem;
+}
+
+.site-footer a {
+ margin: 0 .25rem;
+}
+

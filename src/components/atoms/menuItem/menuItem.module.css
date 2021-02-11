@@ -1,0 +1,18 @@
+.menu-item {
+  border-bottom: 1px dotted var(--primary);
+  padding: .5rem;
+  white-space: nowrap;
+}
+
+.menu-item:last-of-type {
+  border-bottom: none;
+}
+
+.menu-item img {
+  margin-right: .75rem;
+  width: 1.5rem;
+}
+
+.menu-item > a {
+  color: var(--accent);
+}

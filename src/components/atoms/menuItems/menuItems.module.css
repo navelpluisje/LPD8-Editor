@@ -1,0 +1,29 @@
+.menu-items {
+  background-color: var(--primary-contrast);
+  border: 1px solid var(--primary);
+  filter: drop-shadow(4px 4px 0 var(--primary));
+  opacity: 0;
+  padding: .5rem;
+  position: absolute;
+  right: 0;
+  top: 100%;
+  transition:
+    visibility 0s ease .3s,
+    opacity .3s ease;
+  visibility: hidden;
+  z-index: 10;
+}
+
+.menu-items > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.open {
+  opacity: 1;
+  transition:
+    visibility 0s ease,
+    opacity .3s ease;
+  visibility: visible;
+}

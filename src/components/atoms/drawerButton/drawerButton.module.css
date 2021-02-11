@@ -1,0 +1,11 @@
+.drawer-button {
+  background-color: white;
+  border-color: silver;
+  border-style: dotted;
+  border-width: 1px 1px 1px 0;
+  font-weight: 800;
+  left: 100%;
+  padding: .5rem;
+  position: absolute;
+  top: 1rem;
+}

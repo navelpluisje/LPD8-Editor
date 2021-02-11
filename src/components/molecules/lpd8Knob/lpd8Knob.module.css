@@ -1,0 +1,15 @@
+.lpd8-knob {
+  background-image: url('./knob.svg');
+  border: 3px solid white;
+  border-radius: .25rem;
+  position: relative;
+}
+
+.lpd8-knob-label {
+  bottom: 100%;
+  font-size: var(--small-font);
+  font-weight: 600;
+  left: 0;
+  padding-bottom: .25rem;
+  position: absolute;
+}

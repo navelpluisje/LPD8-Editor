@@ -1,0 +1,35 @@
+.drawer-item {
+  height: 1.1rem;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  transition: height .3s ease;
+}
+
+.drawer-item article {
+}
+
+.drawer-item header span {
+  color: var(--accent);
+  cursor: pointer;
+  float: right;
+}
+
+.drawer-item section {
+  font-size: var(--small-font);
+  padding: .5rem 0 .5rem 1rem;
+}
+
+.drawer-item footer {
+  border-color: var(--border-color);
+  border-style: dotted;
+  border-width: 1px 0;
+  color: var(--accent);
+  display: flex;
+  font-size: var(--small-font);
+  justify-content: flex-end;
+  padding: .5rem 0;
+}
+
+.drawer-item footer > span {
+  cursor: pointer;
+}

@@ -1,0 +1,12 @@
+.midi-settings {
+  padding: 1rem;
+}
+
+.midi-settings > h2 {
+  margin-top: 0;
+}
+
+.midi-settings > div {
+  margin-right: 1rem;
+  min-width: 10rem;
+}

@@ -1,0 +1,42 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "target": "es5",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": false,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "paths": {
+      "@atoms": ["src/components/atoms/index"],
+      "@atoms/*": ["src/components/atoms/*"],
+      "@layouts/*": ["src/components/layouts/*"],
+      "@molecules": ["src/components/molecules/index"],
+      "@molecules/*": ["src/components/molecules/*"],
+      "@organisms": ["src/components/organisms/index"],
+      "@organisms/*": ["src/components/organisms/*"],
+      "@utils": ["src/utils/index"],
+      "@utils/*": ["src/utils/*"],
+      "@context": ["src/context/index"],
+      "@context/*": ["src/context/*"],
+      "@constants": ["src/constants"],
+    },
+  },
+  "include": [
+    "src"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
